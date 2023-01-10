@@ -1,0 +1,22 @@
+# -*- mode: gitignore -*-
+
+.*
+!.gitkeep
+!.keep
+
+!/.gitignore
+!/.gitattributes
+!/.gitmessage
+
+/*.iml
+/*.pom
+/target
+
+/apps/hive/*
+!/apps/hive/.keep
+
+/apps/spark/warehouse/*
+!/apps/spark/warehouse/.keep
+
+/apps/spark/checkpoint/*
+!/apps/spark/checkpoint/.keep
