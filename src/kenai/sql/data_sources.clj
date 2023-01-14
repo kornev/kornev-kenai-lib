@@ -102,7 +102,7 @@
   See: https://spark.apache.org/docs/2.4.8/sql-data-sources-orc.html"
   ^Dataset
   ([spark path]
-   (read-parquet! spark path {}))
+   (read-orc! spark path {}))
   ([spark path options]
    (read-data! spark "orc" path options)))
 
@@ -110,7 +110,7 @@
   "Saves the content of the DataFrame in ORC format at the specified path.
   See: https://spark.apache.org/docs/2.4.8/sql-data-sources-orc.html"
   ([dataframe path]
-   (write-parquet! dataframe path {}))
+   (write-orc! dataframe path {}))
   ([dataframe path options]
    (write-data! "orc" dataframe path options)))
 
