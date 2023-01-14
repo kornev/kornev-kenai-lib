@@ -6,17 +6,14 @@
 
 (defn- spark-conf
   "Construct a new Spark configuration."
-  ^SparkConf [{:keys [app-name master settings]
+  ^SparkConf [{:keys [app-name settings]
                :or   {app-name "kenai-app"
-                      master   "local[2]"
                       settings {}}}]
-  (reduce (fn [^SparkConf state [k ^String v]]
-            (. state set (name k) v))
-          (.. (SparkConf. false)
-              (setAppName app-name)
-              (setMaster master))
-          (merge {"spark.ui.enabled" "false"}
-                 settings)))
+  (reduce (fn [^SparkConf state [k v]] (. state set (name k) (str v)))
+          (-> (SparkConf. false)
+              (. set "spark.app.name" app-name)
+              (. set "spark.ui.enabled" "false"))
+          settings))
 
 (defn get-or-create
   "The entry point to programming Spark with the Dataset and DataFrame API."

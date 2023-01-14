@@ -3,8 +3,7 @@
             [kenai.spark.sql.spark-session :as api-spark-session])
   (:import (org.apache.spark.sql.types ArrayType
                                        DataTypes)
-           (org.apache.spark.sql SparkSession)
-           (org.apache.spark.sql.types StructType)))
+           (org.apache.spark.sql SparkSession)))
 
 (def java-type->spark-type
   "A mapping from Java types to Spark types."
