@@ -29,7 +29,7 @@
       (. context setCheckpointDir checkpoint-dir))
     session))
 
-(defn log-level!
+(defn log-level!  ; level as type
   "Control our logLevel."
   [^SparkSession spark level]
   (-> (api-spark-session/spark-context spark)

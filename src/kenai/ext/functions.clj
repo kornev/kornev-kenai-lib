@@ -17,6 +17,7 @@
             [kenai.utils :refer (link)])
   (:import (org.apache.spark.sql Column
                                  functions)))
+
 ;; Start patch
 (link column/col ->column)
 (link ext-column/->col-array ->col-array)
