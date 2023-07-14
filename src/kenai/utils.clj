@@ -2,10 +2,9 @@
 
 (defn refresh-link
   [src dst]
-  (add-watch src dst
-             (fn [link target _ new-state]
-               (alter-var-root link (constantly new-state))
-               (alter-meta! link merge (dissoc (meta target) :name)))))
+  (add-watch src dst (fn [link target _ new-state]
+                       (alter-var-root link (constantly new-state))
+                       (alter-meta! link merge (dissoc (meta target) :name)))))
 
 (defmacro link
   "Make links between functions."
