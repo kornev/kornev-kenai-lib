@@ -1,7 +1,5 @@
 (ns kenai.utils)
 
-; Note: xxx
-
 (defn refresh-link
   [src dst]
   (add-watch src dst (fn [link target _ new-state]
