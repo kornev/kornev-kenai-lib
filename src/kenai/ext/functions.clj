@@ -48,7 +48,7 @@
 (defn array-contains [expr value]
   (functions/array_contains (->column expr) value))
 (defn array-distinct [expr]
-  (functions/array_distinct (->column expr)))
+  (functions/array_distinct (column/col expr)))
 (defn array-except [left right]
   (functions/array_except (->column left) (->column right)))
 (defn array-intersect [left right]

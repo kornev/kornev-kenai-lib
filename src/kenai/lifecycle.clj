@@ -17,7 +17,8 @@
 
 (defn get-or-create
   "The entry point to programming Spark with the Dataset and DataFrame API."
-  ^SparkSession [{:keys [checkpoint-dir] :as params}]
+  ^SparkSession [{:as params
+                  :keys [checkpoint-dir]}]
   (let [settings (spark-conf params)
         session  (.. (SparkSession/builder)
                      (config settings)
