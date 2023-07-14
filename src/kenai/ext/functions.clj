@@ -25,6 +25,9 @@
   (->> m
        (clojure.core/map (fn [[k v]] [(name k) (name v)]))
        (into {})))
+
+; (fmap (fn [[k v]] [(name k) (name v)]) %)
+
 ;; End patch
 
 ;;;; Agg Functions
