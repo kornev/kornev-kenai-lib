@@ -1,4 +1,4 @@
-(defproject com.ensime/kenai "0.2"
+(defproject com.ensime/kenai "0.3"
   :description "Kenai is a package that provides a lightweight frontend to use Apache Spark from Clojure"
   :url         "https://github.com/kornev/kornev-kenai-lib"
   :license {:name "MIT"
