@@ -17,6 +17,7 @@
             [kenai.utils :refer (link)])
   (:import (org.apache.spark.sql Column
                                  functions)))
+
 ;; Start patch
 (link column/col ->column)
 (link ext-column/->col-array ->col-array)
@@ -24,6 +25,9 @@
   (->> m
        (clojure.core/map (fn [[k v]] [(name k) (name v)]))
        (into {})))
+
+; (fmap (fn [[k v]] [(name k) (name v)]) %)
+
 ;; End patch
 
 ;;;; Agg Functions

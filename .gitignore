@@ -11,6 +11,7 @@
 /*.iml
 /*.pom
 /target
+/flake.lock
 
 /apps/hive/*
 !/apps/hive/.keep

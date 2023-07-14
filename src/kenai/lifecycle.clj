@@ -1,5 +1,6 @@
 (ns kenai.lifecycle
-  (:require [kenai.spark.spark-context :as api-spark-context]
+  (:require [clojure.string :as str]
+            [kenai.spark.spark-context :as api-spark-context]
             [kenai.spark.sql.spark-session :as api-spark-session])
   (:import (org.apache.spark SparkConf)
            (org.apache.spark.sql SparkSession)))
@@ -31,10 +32,14 @@
 
 (defn log-level!
   "Control our logLevel."
-  [^SparkSession spark level]
-  (-> (api-spark-session/spark-context spark)
-      (api-spark-context/java-spark-context)
-      (api-spark-context/set-log-level level)))
+  [^SparkSession spark level]  ; ALL, DEBUG, ERROR, FATAL, INFO, OFF, TRACE, WARN
+  (api-spark-context/set-log-level
+   (-> spark
+       api-spark-session/spark-context
+       api-spark-context/java-spark-context)
+   (-> level
+       name
+       str/upper-case)))
 
 (defn settings
   "Return a copy of this JavaSparkContext's configuration. The configuration \"cannot\" be changed at runtime."
